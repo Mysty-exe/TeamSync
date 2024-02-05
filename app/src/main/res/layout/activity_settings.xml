@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SettingsActivity">
+
+    <TextView
+        android:id="@+id/settingsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Settings"
+        android:textSize="36dp"
+        android:textColor="@color/maroon"
+        android:fontFamily="@font/nunito"
+        android:paddingTop="30dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profileBtn"
+        app:cornerRadius="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/settingsTxt"
+        android:layout_marginTop="50dp"
+        android:text="Profile Settings"
+        android:textSize="18dp"
+        android:fontFamily="@font/nunito"
+        app:rippleColor="@color/maroon"
+        style="@style/Widget.Material3.Button.TextButton"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/notiBtn"
+        app:cornerRadius="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileBtn"
+        android:layout_marginTop="0dp"
+        android:text="Notification Settings"
+        android:textSize="18dp"
+        android:fontFamily="@font/nunito"
+        app:rippleColor="@color/maroon"
+        style="@style/Widget.Material3.Button.TextButton"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/delAccBtn"
+        app:cornerRadius="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notiBtn"
+        android:layout_marginTop="0dp"
+        android:text="Delete Account"
+        android:textSize="18dp"
+        android:fontFamily="@font/nunito"
+        app:rippleColor="@color/maroon"
+        style="@style/Widget.Material3.Button.TextButton"/>
+
+</RelativeLayout>

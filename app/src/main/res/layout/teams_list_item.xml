@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="15dp"
+    android:layout_marginBottom="10dp">t
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/team_cardview"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="5dp"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="20">
+
+            <TextView
+                android:id="@+id/teamNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:layout_marginTop="15dp"
+                android:text="Team Name"
+                android:textColor="@color/gold"
+                android:textStyle="bold"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/coachTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/nunito"
+                android:text="Coach"
+                android:textColor="@color/white"
+                android:textStyle="bold|italic"
+                android:textSize="14sp"
+                tools:ignore="SmallSp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/sportImg"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="3"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/imgMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu"/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.teamFragment"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/teamTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Team"
+        android:textSize="30dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/maroon"
+        android:fontFamily="@font/nunito"/>
+
+    <RelativeLayout
+        android:id="@+id/coaches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/teamTxt">
+
+        <TextView
+            android:id="@+id/coachesTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coaches"
+            android:textColor="@color/maroon"
+            android:textSize="22dp" />
+
+        <View
+            android:id="@+id/coachLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/coachesTxt"
+            android:background="@android:color/darker_gray"
+            android:backgroundTint="@color/maroon"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coachLine"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/coaches"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/playersTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Players"
+            android:textColor="@color/maroon"
+            android:textSize="22dp" />
+
+        <View
+            android:id="@+id/playerLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/playersTxt"
+            android:background="@android:color/darker_gray"
+            android:backgroundTint="@color/maroon"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/playerLine"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
