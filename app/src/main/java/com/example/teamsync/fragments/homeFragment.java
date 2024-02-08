@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,18 +49,18 @@ public class homeFragment extends Fragment {
     private TextInputEditText announcementTxt;
     private MaterialButton cancelBtn, postBtn;
     private TextView teamName, coachName;
-    private final AnnouncementsRecViewAdapter adapter = new AnnouncementsRecViewAdapter(getContext());
+    private AnnouncementsRecViewAdapter adapter;
     public AnnouncementsRecViewAdapter getAdapter() {
         return adapter;
     }
+    private Handler handler = new Handler();
     private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        String teamId = getArguments().getString("Team");
-        Team team = LoginActivity.getTeam(teamId);
+        Team team = LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam());
 
         announcementsRecView = view.findViewById(R.id.announcementsRecView);
         announcementInput = view.findViewById(R.id.announcementInput);
@@ -72,13 +73,15 @@ public class homeFragment extends Fragment {
         coachName = view.findViewById(R.id.coachTxt);
 
         teamName.setText(team.getName());
-        coachName.setText(LoginActivity.getCoachObj(team.getCoach()).getFullName());
+        coachName.setText(LoginActivity.getPersonObj(team.getCoach()).getFullName());
 
         if (team.getAnnouncements().isEmpty()) {
             notFound.setVisibility(View.VISIBLE);
         } else {
             notFound.setVisibility(View.INVISIBLE);
         }
+
+        adapter = new AnnouncementsRecViewAdapter(getContext());
         adapter.setAnnouncements(team.getAnnouncements());
         announcementsRecView.setAdapter(adapter);
         announcementsRecView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -108,11 +111,10 @@ public class homeFragment extends Fragment {
                 if (announcementTxt.getText().toString().trim().isEmpty()) {
                     return;
                 }
-
                 Date currentTime = Calendar.getInstance().getTime();
                 @SuppressLint("SimpleDateFormat") DateFormat date = new SimpleDateFormat("HH:mm");
-                Announcement announcement = new Announcement(LoginActivity.getCurrentAcc().getFullName(), date.format(currentTime), announcementTxt.getText().toString());
-                ArrayList<Announcement> announcements = team.getAnnouncements();
+                Announcement announcement = new Announcement(LoginActivity.getCurrentAcc().getFullName(), date.format(currentTime), announcementTxt.getText().toString(), team.getId());
+                ArrayList<Announcement> announcements = LoginActivity.getTeam(team.getId()).getAnnouncements();;
                 announcements.add(0, announcement);
                 adapter.setAnnouncements(announcements);
                 announcementTxt.setText("");
@@ -120,10 +122,31 @@ public class homeFragment extends Fragment {
                 announcementInput.clearFocus();
                 announcementBtns.setVisibility(View.GONE);
                 notFound.setVisibility(View.INVISIBLE);
+                LoginActivity.getTeam(team.getId()).setAnnouncements(announcements);
             }
         });
+        handler.post(runnable);
 
         return view;
+    }
+
+    private final Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            checkAnnouncements();
+            handler.postDelayed(runnable, 100);
+        }
+    };
+
+    public void checkAnnouncements() {
+        RelativeLayout notFoundGroup = view.findViewById(R.id.notFoundGroup);
+        if (LoginActivity.getCurrentAcc() != null) {
+            if (LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam()).getAnnouncements().isEmpty()) {
+                notFoundGroup.setVisibility(View.VISIBLE);
+            } else {
+                notFoundGroup.setVisibility(View.GONE);
+            }
+        }
     }
 
     public static void hideKeyboardFrom(Context context, View view) {

@@ -15,6 +15,8 @@ public class Team {
     private String id = UUID.randomUUID().toString();
     private String name, sport, coach, age, gender;
     private ArrayList<Announcement> announcements = new ArrayList<>();
+    private ArrayList<String> coaches = new ArrayList<>();
+    private ArrayList<String> players = new ArrayList<>();
 
     public Team(String name, String sport, String coach, String age, String gender) {
         this.name = name;
@@ -93,5 +95,21 @@ public class Team {
 
     public void setAnnouncements(ArrayList<Announcement> announcements) {
         this.announcements = announcements;
+    }
+
+    public ArrayList<String> getCoaches() {
+        return coaches;
+    }
+
+    public void setCoaches(ArrayList<String> coaches) {
+        this.coaches = coaches;
+    }
+
+    public ArrayList<String> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(ArrayList<String> players) {
+        this.players = players;
     }
 }

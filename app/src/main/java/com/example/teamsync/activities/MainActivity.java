@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        LoginActivity.getCurrentAcc().setActiveTeam(null);
         teamsRecView = findViewById(R.id.teamsRecView);
 
         adapter.setTeamIds(LoginActivity.getCurrentAcc().getTeamIds());

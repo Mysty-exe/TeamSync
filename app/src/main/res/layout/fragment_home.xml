@@ -33,14 +33,15 @@
             <RelativeLayout
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/banner">
 
                 <TextView
                     android:id="@+id/teamNameTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/nunito"
                     android:text="Team Name"
@@ -52,7 +53,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/teamNameTxt"
-                    android:layout_marginLeft="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="30dp"
                     android:fontFamily="@font/nunito"
                     android:text="Coach Name"
                     android:textColor="@color/white"
@@ -74,16 +77,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Write an Announcement..."
-                    app:boxBackgroundColor="@color/white"
+                    android:textColorHint="@color/maroon"
+                    app:boxStrokeColor="@color/gold"
                     app:hintTextColor="@color/maroon">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/announcementInputTxt"
+                        android:background="#00000000"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito"
                         android:inputType="textMultiLine"
-                        android:textColor="@color/gold"
+                        android:textColor="@color/maroon"
                         android:textColorHint="@color/gold">
                     </com.google.android.material.textfield.TextInputEditText>
 

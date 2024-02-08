@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     static Account currentAcc;
     private MaterialButton signupBtn, loginBtn;
 
-    public static Account getCoachObj(String id) {
+    public static Account getPersonObj(String id) {
         for (Account a: accounts) {
             if (a.getId().equals(id)) {
                 return a;
@@ -113,6 +113,14 @@ public class LoginActivity extends AppCompatActivity {
     }
     public static void clearCurrentAcc() {
         currentAcc = null;
+    }
+
+    public static void deleteAccount(String id) {
+        for (Account a: accounts) {
+            if (a.getId().equals(id)) {
+                accounts.remove(a);
+            }
+        }
     }
 
     @Override

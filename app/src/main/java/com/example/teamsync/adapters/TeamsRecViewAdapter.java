@@ -69,6 +69,7 @@ public class TeamsRecViewAdapter extends RecyclerView.Adapter<TeamsRecViewAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LoginActivity.getCurrentAcc().setActiveTeam(teams.get(position));
                 Intent intent = new Intent(context, TeamActivity.class);
                 intent.putExtra("Team", teams.get(position));
                 context.startActivity(intent);
@@ -77,7 +78,7 @@ public class TeamsRecViewAdapter extends RecyclerView.Adapter<TeamsRecViewAdapte
 
         Team team = LoginActivity.getTeam(teams.get(position));
         holder.txtTeam.setText(team.getName());
-        holder.txtCoach.setText(LoginActivity.getCoachObj(team.getCoach()).getFullName());
+        holder.txtCoach.setText(LoginActivity.getPersonObj(team.getCoach()).getFullName());
         holder.imgSport.setImageResource(team.getImage());
         holder.imgMenu.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -28,6 +28,7 @@
     <style name="DialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert">
         <item name="android:background">@color/maroon</item>
         <item name="android:textColor">@color/gold</item>
+        <item name="android:textColorPrimary">@color/white</item>
         <item name="buttonTint">@color/white</item>
         <item name="cornerRadius">10dp</item>
     </style>
@@ -81,6 +82,10 @@
         <item name="colorPrimary">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="backgroundTint">@color/maroon</item>
+    </style>
+
+    <style name="Text" parent="">
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

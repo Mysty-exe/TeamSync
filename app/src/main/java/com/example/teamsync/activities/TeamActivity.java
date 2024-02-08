@@ -43,26 +43,20 @@ public class TeamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
-
-        Intent intent = getIntent();
-        String teamId = intent.getStringExtra("Team");
-        Bundle bundle = new Bundle();
-        bundle.putString("Team", teamId);
-
-        goHome(bundle);
+        goHome();
 
         menu = findViewById(R.id.bottom_navigation);
         profileFab = findViewById(R.id.profileFab);
 
         menu.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
-                goHome(bundle);
+                goHome();
             } else if (item.getItemId() == R.id.events) {
-                goEvents(bundle);
+                goEvents();
             } else if (item.getItemId() == R.id.stats) {
-                goStats(bundle);
+                goStats();
             } else if (item.getItemId() == R.id.team) {
-                goTeam(bundle);
+                goTeam();
             }
 
             return true;
@@ -80,6 +74,7 @@ public class TeamActivity extends AppCompatActivity {
                         } else if (item.getItemId() == R.id.logout) {
                             LoginActivity.clearCurrentAcc();
                             startActivity(new Intent(TeamActivity.this, LoginActivity.class));
+                            finish();
                         }
                         return false;
                     }
@@ -94,7 +89,6 @@ public class TeamActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("TAG", "onPause");
         SharedPreferences sharedPrefs = getSharedPreferences("Data", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = sharedPrefs.edit();
         String accountsJson = gson.toJson(LoginActivity.getAccounts());
@@ -105,33 +99,28 @@ public class TeamActivity extends AppCompatActivity {
             String accountJson = gson.toJson(LoginActivity.getCurrentAcc());
             prefsEditor.putString("Account", accountJson);
         } else {
-            Log.d("error", "Removing");
             prefsEditor.remove("Account");
         }
         prefsEditor.apply();
     }
 
-    private void goHome(Bundle bundle) {
+    private void goHome() {
         Fragment homeFragment = new homeFragment();
-        homeFragment.setArguments(bundle);
         replaceFragment(homeFragment);
     }
 
-    private void goEvents(Bundle bundle) {
+    private void goEvents() {
         Fragment eventsFragment = new eventsFragment();
-        eventsFragment.setArguments(bundle);
         replaceFragment(eventsFragment);
     }
 
-    private void goStats(Bundle bundle) {
+    private void goStats() {
         Fragment statsFragment = new statsFragment();
-        statsFragment.setArguments(bundle);
         replaceFragment(statsFragment);
     }
 
-    private void goTeam(Bundle bundle) {
+    private void goTeam() {
         Fragment teamFragment = new teamFragment();
-        teamFragment.setArguments(bundle);
         replaceFragment(teamFragment);
     }
 

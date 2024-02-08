@@ -10,6 +10,7 @@ public class Account {
     private String fullName;
     private String email;
     private String password;
+    private String activeTeam;
     private ArrayList<String> teamIds = new ArrayList<>();
 
     public Account(String name, String email, String password) {
@@ -48,6 +49,14 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getActiveTeam() {
+        return activeTeam;
+    }
+
+    public void setActiveTeam(String activeTeam) {
+        this.activeTeam = activeTeam;
     }
 
     public ArrayList<String> getTeamIds() {
