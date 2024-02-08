@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:strokeColor="@color/maroon"
+    app:strokeWidth="2dp"
+    app:cardBackgroundColor="@null"
+    android:layout_marginBottom="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="20dp">
+
+        <ImageView
+            android:id="@+id/imgMenu"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu"
+            app:tint="@color/maroon" />
+
+        <TextView
+            android:id="@+id/personTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Person Name"
+            android:textColor="@color/maroon"
+            android:textSize="26sp"/>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
