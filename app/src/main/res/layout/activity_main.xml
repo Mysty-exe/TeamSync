@@ -89,8 +89,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:src="@drawable/ic_add"
-        android:backgroundTint="@color/maroon"
-        app:tint="@color/gold"
+        android:backgroundTint="@color/gold"
+        app:tint="@color/white"
         app:pressedTranslationZ="0dp"
         app:hoveredFocusedTranslationZ="0dp"
         app:elevation="0dp"/>

@@ -3,14 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.eventsFragment"
-    android:padding="30dp">
+    android:padding="10dp">
 
     <TextView
+        android:id="@+id/eventsTxt"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Events"
         android:textSize="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/maroon"
         android:fontFamily="@font/nunito"/>
+
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventsTxt"
+        android:layout_marginTop="10dp">
+
+    </CalendarView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addEventFab"
+        android:src="@drawable/ic_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/gold"
+        app:tint="@color/white"
+        app:elevation="0dp"
+        app:pressedTranslationZ="0dp"
+        app:hoveredFocusedTranslationZ="0dp"/>
 
 </RelativeLayout>
