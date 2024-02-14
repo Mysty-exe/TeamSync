@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,7 +25,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
-import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -104,15 +104,16 @@ public class AddEventActivity extends AppCompatActivity {
                 materialTimePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Calendar calendar = Calendar.getInstance();
+                        String currentDate = DateFormat.format("MMMM dd, yyyy", calendar).toString();
                         Date currentTime = Calendar.getInstance().getTime();
                         Date chosenTime = new Date();
                         int hourOfDay = materialTimePicker.getHour();
                         int minute = materialTimePicker.getMinute();
                         chosenTime.setHours(hourOfDay);
                         chosenTime.setMinutes(minute);
-                        
-                        if (chosenTime.before(currentTime)) {
-                            Toast.makeText(AddEventActivity.this, "You can't create an event in the past", Toast.LENGTH_SHORT).show();
+                        if (currentDate.equals(date) && chosenTime.before(currentTime)) {
+                            Toast.makeText(AddEventActivity.this, "Can't Create an Event in the Past", Toast.LENGTH_SHORT).show();
                             return;
                         }
 

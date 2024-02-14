@@ -99,6 +99,10 @@ public class eventsFragment extends Fragment {
         addEventFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (calDate.before(calTd)) {
+                    Toast.makeText(getContext(), "Can't Create an Event in the Past", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent = new Intent(getActivity(), AddEventActivity.class);
                 intent.putExtra("Date", currentCalDate);
                 startActivity(intent);

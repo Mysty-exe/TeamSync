@@ -64,6 +64,54 @@ public class Event {
         return resultEvents;
     }
 
+    public static ArrayList<Event> sortEvents(ArrayList<Event> events) {
+//        int size = events.length;
+//
+//        for (int i = 0; i < (size-1); i++) {
+//
+//            boolean swapped = false;
+//
+//            for (int j = 0; j < (size - i - 1); j++) {
+//
+//                if (events[j] > events[j + 1]) {
+//
+//                    int temp = events[j];
+//                    events[j] = events[j + 1];
+//                    events[j + 1] = temp;
+//
+//                    swapped = true;
+//                }
+//            }
+//            if (!swapped)
+//                break;
+//        }
+        return events;
+    }
+
+    public static String timeAfter(String timeOne, String timeTwo) {
+        String[] timeOneParts = timeOne.split(" ");
+        String[] timeTwoParts = timeTwo.split(" ");
+        String timeOneTime = timeOneParts[0];
+        String timeOneAMPM = timeOneParts[1];
+        String timeTwoTime = timeTwoParts[0];
+        String timeTwoAMPM = timeTwoParts[1];
+
+        if (!timeOneAMPM.equals(timeTwoAMPM)) {
+            String[] timeOneTimeParts = timeOneTime.split(" ");
+            String[] timeTwoTimeParts = timeTwoTime.split(" ");
+            String timeOneHours = timeOneTimeParts[0];
+            String timeOneMinutes = timeOneTimeParts[1];
+            String timeTwoHours = timeTwoTimeParts[0];
+            String timeTwoMinutes = timeTwoTimeParts[1];
+
+        } else {
+            if (timeOneAMPM.equals("AM")) {
+                return timeOne;
+            }
+            return timeTwo;
+        }
+    }
+
     public String getNotes() {
         return notes;
     }
