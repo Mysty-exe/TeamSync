@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/team_popup"
+        android:backgroundTint="@color/maroon"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/exitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_exit"
+            app:tint="@color/gold" />
+
+        <TextView
+            android:id="@+id/addEventTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add an Event"
+            android:textSize="40sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/eventNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addEventTxt"
+            android:hint="Event Name"
+            app:endIconMode="clear_text"
+            android:layout_marginTop="20dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="40"
+            app:helperText="Name of the Event"
+            app:errorEnabled="true"
+            style="@style/Widget.App.textField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/eventNameInputTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:fontFamily="@font/nunito">
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/eventsDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Event Type"
+            app:helperText="What type of event is it?"
+            android:layout_below="@+id/eventNameInput"
+            android:layout_marginTop="30dp"
+            app:endIconMode="dropdown_menu"
+            style="@style/Widget.App.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/eventChoice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:fontFamily="@font/nunito"
+                android:textColor="@color/white"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/timeHeadingTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/eventsDropdown"
+            android:text="Time"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <TextView
+            android:id="@id/timeTxt"
+            android:layout_below="@id/timeHeadingTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Actual Time"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"
+            android:visibility="gone"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/setTimeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timeHeadingTxt"
+            android:layout_toRightOf="@id/timeTxt"
+            android:text="Set Time"
+            android:fontFamily="@font/nunito"
+            app:backgroundTint="@color/gold"
+            android:textColor="@color/white"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addressInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            app:helperText="Where is the place located?"
+            android:layout_below="@+id/setTimeBtn"
+            android:layout_marginTop="15dp"
+            app:endIconMode="clear_text"
+            app:counterEnabled="true"
+            app:counterMaxLength="30"
+            app:errorEnabled="true"
+            style="@style/Widget.App.textField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addressInputTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:fontFamily="@font/nunito">
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/notesInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notes"
+            app:helperText="Info about this event (Drills, Exercises, More Information, etc)"
+            android:layout_below="@+id/addressInput"
+            android:layout_marginTop="30dp"
+            app:endIconMode="clear_text"
+            app:counterEnabled="true"
+            app:counterMaxLength="250"
+            app:errorEnabled="true"
+            style="@style/Widget.App.textField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:gravity="start"
+                android:id="@+id/notesInputTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:fontFamily="@font/nunito">
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addEventBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notesInput"
+            android:layout_marginTop="30dp"
+            android:text="Add Event"
+            android:fontFamily="@font/nunito"
+            android:layout_centerHorizontal="true"
+            app:backgroundTint="@color/gold"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+</ScrollView>

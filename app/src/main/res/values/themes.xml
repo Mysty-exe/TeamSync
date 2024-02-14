@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
     <style name="Theme.TeamSync" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/maroon</item>
@@ -7,6 +7,13 @@
         <item name="android:textColorPrimary">@color/maroon</item>
         <item name="android:textColorSecondary">@color/gold</item>
         <item name="colorSurface">@color/gold</item>
+    </style>
+
+    <style name="TimePicker" parent="@style/ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="colorPrimary">@color/maroon</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/maroon</item>
+        <item name="colorOnPrimary">@color/gold</item>
     </style>
 
     <style name="themeFragment" parent="Theme.MaterialComponents.DayNight.NoActionBar">

@@ -32,6 +32,9 @@
             android:name=".activities.EditTeamActivity"
             android:theme="@style/Theme.AppPopUp"/>
         <activity
+            android:name=".activities.AddEventActivity"
+            android:theme="@style/Theme.AppPopUp"/>
+        <activity
             android:name=".activities.TeamActivity"/>
         <activity
             android:name=".activities.SettingsActivity"/>

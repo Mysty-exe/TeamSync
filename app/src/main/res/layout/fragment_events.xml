@@ -19,12 +19,89 @@
         android:fontFamily="@font/nunito"/>
 
     <CalendarView
+        android:id="@+id/calendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/eventsTxt"
-        android:layout_marginTop="10dp">
+        android:layout_below="@id/eventsTxt">
 
     </CalendarView>
+
+    <TextView
+        android:id="@+id/dateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calendar"
+        android:text="Today"
+        android:textSize="24sp"
+        android:textColor="@color/maroon"
+        android:fontFamily="@font/nunito"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/numEventsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateTxt"
+        android:text="0 Events"
+        android:textSize="18sp"
+        android:textColor="@color/maroon"
+        android:fontFamily="@font/nunito"
+        android:layout_marginLeft="20dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numEventsTxt"
+        android:layout_above="@id/addEventFab">
+
+        <RelativeLayout
+            android:id="@+id/notFoundGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/noEventFoundImg"
+                style="@style/notFoundImg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/noEventFoundTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/noEventFoundImg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/nunito"
+                android:text="No Events Found"
+                android:textColor="@color/gold"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/noEventFoundTxt"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/nunito"
+                android:text="Add One Below"
+                android:textColor="@color/gold"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/eventsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addEventFab"

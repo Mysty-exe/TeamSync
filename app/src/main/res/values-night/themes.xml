@@ -9,6 +9,13 @@
         <item name="colorSurface">@color/gold</item>
     </style>
 
+    <style name="TimePicker" parent="@style/ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="colorPrimary">@color/maroon</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/maroon</item>
+        <item name="colorOnPrimary">@color/gold</item>
+    </style>
+
     <style name="themeFragment" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:background">@color/bgDarkColor</item>
         <item name="android:clickable">true</item>

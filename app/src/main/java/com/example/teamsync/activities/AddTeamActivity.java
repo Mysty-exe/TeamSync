@@ -18,6 +18,8 @@ import com.example.teamsync.models.Team;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.timepicker.MaterialTimePicker;
+import com.google.android.material.timepicker.TimeFormat;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -70,7 +72,7 @@ public class AddTeamActivity extends Activity {
         sports.add("Football");
 
         ArrayAdapter<String> sportsAdapter = new ArrayAdapter<>(
-                this, R.layout.sports_list_item, sports
+                this, R.layout.adapter_list_item, sports
         );
         sportChoice.setAdapter(sportsAdapter);
 

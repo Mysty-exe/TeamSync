@@ -63,7 +63,7 @@
             android:layout_below="@+id/noTeamFoundImg"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:textColor="@color/gold"
+            android:textColor="@color/maroon"
             android:fontFamily="@font/nunito"
             android:textStyle="bold"
             android:text="@string/no_teams_found"
@@ -72,7 +72,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/gold"
+            android:textColor="@color/maroon"
             android:text="@string/create_one_below"
             android:textSize="11sp"
             android:fontFamily="@font/nunito"

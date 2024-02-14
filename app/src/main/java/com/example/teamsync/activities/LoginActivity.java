@@ -17,6 +17,7 @@ import com.example.teamsync.models.Account;
 import com.example.teamsync.fragments.LoginFragment;
 import com.example.teamsync.R;
 import com.example.teamsync.fragments.SignupFragment;
+import com.example.teamsync.models.Event;
 import com.example.teamsync.models.Team;
 import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
