@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -18,8 +19,6 @@ import com.example.teamsync.models.Team;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.android.material.timepicker.MaterialTimePicker;
-import com.google.android.material.timepicker.TimeFormat;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -40,7 +39,7 @@ public class AddTeamActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_team_popupwindow);
+        setContentView(R.layout.activity_addteam);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -72,7 +71,7 @@ public class AddTeamActivity extends Activity {
         sports.add("Football");
 
         ArrayAdapter<String> sportsAdapter = new ArrayAdapter<>(
-                this, R.layout.adapter_list_item, sports
+                this, R.layout.item_adapter, sports
         );
         sportChoice.setAdapter(sportsAdapter);
 
@@ -120,8 +119,9 @@ public class AddTeamActivity extends Activity {
                 String sport = sportChoice.getText().toString();
                 String age = ageChoice.getText().toString();
                 String gender = genderChoice.getText().toString();
-                Team team = new Team(teamName, sport, LoginActivity.getCurrentAcc().getId(), age, gender);
+                Team team = new Team(teamName, sport, HomePageActivity.getCurrentAcc().getId(), age, gender);
                 mainActivity.addTeam(team);
+                Toast.makeText(AddTeamActivity.this, "Team Added", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

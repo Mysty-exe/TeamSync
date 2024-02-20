@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/popup"
+        android:backgroundTint="@color/maroon"
+        android:padding="30dp">
+
+        <ImageView
+            android:id="@+id/exitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_exit"
+            app:tint="@color/gold" />
+
+        <TextView
+            android:id="@+id/eventNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Event Name"
+            android:textSize="30sp"
+            android:layout_marginTop="35dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <TextView
+            android:id="@+id/eventTypeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/eventNameTxt"
+            android:text="Type"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <TextView
+            android:id="@+id/timeHeadingTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/eventTypeTxt"
+            android:text="Time"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <TextView
+            android:id="@+id/timeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/timeHeadingTxt"
+            android:text="10:00 AM"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <TextView
+            android:id="@+id/attendanceHeadingTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/timeTxt"
+            android:text="Attendance"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <TextView
+            android:id="@+id/attendanceTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/attendanceHeadingTxt"
+            android:text="15 / 20 People Confirmed"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <TextView
+            android:id="@+id/placeHeadingTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/attendanceTxt"
+            android:text="Address"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <TextView
+            android:id="@+id/placeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/placeHeadingTxt"
+            android:text="123 Street"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"/>
+
+        <RelativeLayout
+            android:id="@+id/notes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/placeTxt">
+
+            <TextView
+                android:id="@+id/notesHeadingTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notes"
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/nunito"/>
+
+            <TextView
+                android:id="@+id/notesTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/notesHeadingTxt"
+                android:text=""
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/nunito"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

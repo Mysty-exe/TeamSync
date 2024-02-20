@@ -2,7 +2,6 @@ package com.example.teamsync.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.splashscreen.SplashScreen;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.example.teamsync.R;
 import com.example.teamsync.models.Team;
@@ -45,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        LoginActivity.getCurrentAcc().setActiveTeam(null);
+        HomePageActivity.getCurrentAcc().setActiveTeam(null);
         teamsRecView = findViewById(R.id.teamsRecView);
 
-        adapter.setTeamIds(LoginActivity.getCurrentAcc().getTeamIds());
+        adapter.setTeamIds(HomePageActivity.getCurrentAcc().getTeamIds());
         teamsRecView.setAdapter(adapter);
         teamsRecView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -73,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         if (item.getItemId() == R.id.settings) {
-                            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                            startActivity(new Intent(MainActivity.this, UserSettingsActivity.class));
                         } else if (item.getItemId() == R.id.logout) {
-                            LoginActivity.clearCurrentAcc();
-                            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                            HomePageActivity.clearCurrentAcc();
+                            startActivity(new Intent(MainActivity.this, HomePageActivity.class));
                         }
                         return false;
                     }
@@ -118,12 +116,12 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         SharedPreferences sharedPrefs = getSharedPreferences("Data", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = sharedPrefs.edit();
-        String accountsJson = gson.toJson(LoginActivity.getAccounts());
-        String teamsJson = gson.toJson(LoginActivity.getTeams());
+        String accountsJson = gson.toJson(HomePageActivity.getAccounts());
+        String teamsJson = gson.toJson(HomePageActivity.getTeams());
         prefsEditor.putString("Accounts", accountsJson);
         prefsEditor.putString("Teams", teamsJson);
-        if (LoginActivity.currentAcc != null) {
-            String accountJson = gson.toJson(LoginActivity.getCurrentAcc());
+        if (HomePageActivity.currentAcc != null) {
+            String accountJson = gson.toJson(HomePageActivity.getCurrentAcc());
             prefsEditor.putString("Account", accountJson);
         } else {
             Log.d("error", "Removing");
@@ -135,34 +133,34 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        adapter.setTeamIds(LoginActivity.getCurrentAcc().getTeamIds());
+        adapter.setTeamIds(HomePageActivity.getCurrentAcc().getTeamIds());
         checkTeams();
     }
 
     public void addTeam(Team team) {
-        ArrayList<String> teamIds = LoginActivity.getCurrentAcc().getTeamIds();
+        ArrayList<String> teamIds = HomePageActivity.getCurrentAcc().getTeamIds();
         teamIds.add(team.getId());
-        LoginActivity.getCurrentAcc().setTeamIds(teamIds);
+        HomePageActivity.getCurrentAcc().setTeamIds(teamIds);
 
-        ArrayList<Team> teams = LoginActivity.getTeams();
+        ArrayList<Team> teams = HomePageActivity.getTeams();
         teams.add(team);
-        LoginActivity.setTeams(teams);
+        HomePageActivity.setTeams(teams);
     }
 
     public void editTeam(Team team) {
-        ArrayList<Team> teams = LoginActivity.getTeams();
+        ArrayList<Team> teams = HomePageActivity.getTeams();
         for(int i = 0; i < teams.size(); i++) {
             if (teams.get(i).getId().equals(team.getId())) {
                 teams.set(i, team);
             }
         }
-        LoginActivity.setTeams(teams);
+        HomePageActivity.setTeams(teams);
     }
 
     public void checkTeams() {
         RelativeLayout notFoundGroup = findViewById(R.id.notFoundGroup);
-        if (LoginActivity.getCurrentAcc() != null) {
-            if (LoginActivity.getCurrentAcc().getTeamIds().isEmpty()) {
+        if (HomePageActivity.getCurrentAcc() != null) {
+            if (HomePageActivity.getCurrentAcc().getTeamIds().isEmpty()) {
                 notFoundGroup.setVisibility(View.VISIBLE);
             } else {
                 notFoundGroup.setVisibility(View.GONE);

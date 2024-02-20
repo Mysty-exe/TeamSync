@@ -11,12 +11,14 @@ public class Account {
     private String email;
     private String password;
     private String activeTeam;
+    private String type;
     private ArrayList<String> teamIds = new ArrayList<>();
 
-    public Account(String name, String email, String password) {
+    public Account(String name, String email, String password, String type) {
         this.fullName = name;
         this.email = email;
         this.password = password;
+        this.type = type;
     }
 
     public String getId() {
@@ -57,6 +59,14 @@ public class Account {
 
     public void setActiveTeam(String activeTeam) {
         this.activeTeam = activeTeam;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public ArrayList<String> getTeamIds() {

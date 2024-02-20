@@ -10,7 +10,7 @@
         android:id="@+id/teamTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Team"
+        android:text="Team Members"
         android:textSize="30dp"
         android:layout_marginBottom="15dp"
         android:textColor="@color/maroon"
@@ -40,7 +40,6 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/coachesRecView"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

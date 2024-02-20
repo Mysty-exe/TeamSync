@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,8 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.teamsync.R;
 import com.example.teamsync.models.Team;
-import com.example.teamsync.activities.EditTeamActivity;
-import com.example.teamsync.activities.LoginActivity;
+import com.example.teamsync.activities.HomePageActivity;
 import com.example.teamsync.activities.MainActivity;
 import com.example.teamsync.activities.TeamActivity;
 
@@ -59,7 +57,7 @@ public class TeamsRecViewAdapter extends RecyclerView.Adapter<TeamsRecViewAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.teams_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_teams, parent, false);
         return new ViewHolder(view);
     }
 
@@ -69,16 +67,16 @@ public class TeamsRecViewAdapter extends RecyclerView.Adapter<TeamsRecViewAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoginActivity.getCurrentAcc().setActiveTeam(teams.get(position));
+                HomePageActivity.getCurrentAcc().setActiveTeam(teams.get(position));
                 Intent intent = new Intent(context, TeamActivity.class);
                 intent.putExtra("Team", teams.get(position));
                 context.startActivity(intent);
             }
         });
 
-        Team team = LoginActivity.getTeam(teams.get(position));
+        Team team = HomePageActivity.getTeam(teams.get(position));
         holder.txtTeam.setText(team.getName());
-        holder.txtCoach.setText(LoginActivity.getPersonObj(team.getCoach()).getFullName());
+        holder.txtCoach.setText(HomePageActivity.getPersonObj(team.getCoach()).getFullName());
         holder.imgSport.setImageResource(team.getImage());
         holder.imgMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,11 +85,6 @@ public class TeamsRecViewAdapter extends RecyclerView.Adapter<TeamsRecViewAdapte
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        if (item.getItemId() == R.id.edit) {
-                            Intent intent = new Intent(context, EditTeamActivity.class);
-                            intent.putExtra("Team", teams.get(position));
-                            context.startActivity(intent);
-                        }
                         if (item.getItemId() == R.id.delete) {
                             confirmDialog();
                             builder.setPositiveButton("Confirm",
@@ -100,7 +93,7 @@ public class TeamsRecViewAdapter extends RecyclerView.Adapter<TeamsRecViewAdapte
                                         public void onClick(DialogInterface dialog, int which) {
                                             teams.remove(holder.getAdapterPosition());
                                             setTeamIds(teams);
-                                            LoginActivity.getCurrentAcc().setTeamIds(teams);
+                                            HomePageActivity.getCurrentAcc().setTeamIds(teams);
                                         }
                                     });
                             builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -115,7 +108,7 @@ public class TeamsRecViewAdapter extends RecyclerView.Adapter<TeamsRecViewAdapte
                     }
                 });
                 MenuInflater inflater = popup.getMenuInflater();
-                inflater.inflate(R.menu.actions, popup.getMenu());
+                inflater.inflate(R.menu.team_actions, popup.getMenu());
                 popup.show();
             }
         });

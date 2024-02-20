@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/team_popup"
+        android:background="@drawable/popup"
         android:backgroundTint="@color/maroon"
         android:padding="20dp">
 

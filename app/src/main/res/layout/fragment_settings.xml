@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.settingsFragment"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/settingsTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/nunito"
+        android:text="Settings"
+        android:textColor="@color/maroon"
+        android:textSize="30dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/nameTxtEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Team Name"
+                android:textSize="18sp"
+                android:textColor="@color/maroon"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/nunito"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/teamNameInputEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nameTxtEdit"
+                android:hint="Name"
+                app:endIconMode="clear_text"
+                android:layout_marginTop="20dp"
+                android:textColorHint="@color/maroon"
+                app:counterEnabled="true"
+                app:counterMaxLength="40"
+                app:helperTextTextColor="@color/maroon"
+                app:counterTextColor="@color/maroon"
+                app:helperText="Name of the Team"
+                app:errorEnabled="true"
+                style="@style/Widget.App.textField">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/teamNameInputTxtEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:inputType="text"
+                    android:fontFamily="@font/nunito">
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/ageTxtEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Age"
+                android:layout_below="@id/teamNameInputEdit"
+                android:textSize="18sp"
+                android:textColor="@color/maroon"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/nunito"/>
+
+            <RadioGroup
+                android:id="@+id/ageRadioGroupEdit"
+                android:checkedButton="@+id/ageChoiceEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ageTxtEdit"
+                style="@style/Widget.Material3.CompoundButton.RadioButton">
+
+                <RadioButton
+                    android:id="@+id/junioursChoiceEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/nunito"
+                    android:text="Juniors"
+                    android:textSize="14dp"
+                    android:textColor="@color/radiobtn_color"
+                    android:theme="@style/RadioButton"/>
+                <RadioButton
+                    android:id="@+id/senioursChoiceEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/nunito"
+                    android:text="Seniors"
+                    android:textSize="14dp"
+                    android:textColor="@color/radiobtn_color"
+                    android:theme="@style/RadioButton"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/genderTxtEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Gender"
+                android:layout_below="@id/ageRadioGroupEdit"
+                android:textSize="18sp"
+                android:textColor="@color/maroon"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/nunito"
+                android:theme="@style/RadioButton"/>
+
+            <RadioGroup
+                android:id="@+id/genderRadioGroupEdit"
+                android:checkedButton="@+id/genderChoiceEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/genderTxtEdit"
+                style="@style/Widget.Material3.CompoundButton.RadioButton">
+
+                <RadioButton
+                    android:id="@+id/maleChoiceEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/nunito"
+                    android:text="Male"
+                    android:textSize="14dp"
+                    android:textColor="@color/radiobtn_color"
+                    android:theme="@style/RadioButton"/>
+                <RadioButton
+                    android:id="@+id/femaleChoiceEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/nunito"
+                    android:text="Female"
+                    android:textSize="14dp"
+                    android:textColor="@color/radiobtn_color"
+                    android:theme="@style/RadioButton"/>
+                <RadioButton
+                    android:id="@+id/mixedChoiceEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/nunito"
+                    android:text="Mixed"
+                    android:textSize="14dp"
+                    android:textColor="@color/radiobtn_color"
+                    android:theme="@style/RadioButton"/>
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/editTeamBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genderRadioGroupEdit"
+                android:layout_marginTop="30dp"
+                android:text="Set Changes"
+                android:layout_centerHorizontal="true"
+                app:backgroundTint="@color/gold"
+                android:fontFamily="@font/nunito"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

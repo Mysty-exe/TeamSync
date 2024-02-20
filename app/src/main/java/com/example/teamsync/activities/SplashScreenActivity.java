@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +33,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         @Override
         public void run() {
             keep = false;
-            startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+            startActivity(new Intent(SplashScreenActivity.this, HomePageActivity.class));
             finish();
         }
     };

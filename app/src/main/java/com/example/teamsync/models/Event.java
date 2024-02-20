@@ -1,8 +1,18 @@
 package com.example.teamsync.models;
 
-import java.util.ArrayList;
+import static java.lang.System.out;
 
-public class Event {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.UUID;
+
+public class Event implements Parcelable {
+    private String id = UUID.randomUUID().toString();
     private String date, name, type, time, place, notes;
 
     public Event(String date, String name, String type, String time, String place) {
@@ -12,6 +22,36 @@ public class Event {
         this.time = time;
         this.place = place;
         this.notes = "";
+    }
+
+    protected Event(Parcel in) {
+        id = in.readString();
+        date = in.readString();
+        name = in.readString();
+        type = in.readString();
+        time = in.readString();
+        place = in.readString();
+        notes = in.readString();
+    }
+
+    public static final Creator<Event> CREATOR = new Creator<Event>() {
+        @Override
+        public Event createFromParcel(Parcel in) {
+            return new Event(in);
+        }
+
+        @Override
+        public Event[] newArray(int size) {
+            return new Event[size];
+        }
+    };
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getDate() {
@@ -61,54 +101,60 @@ public class Event {
                 resultEvents.add(e);
             }
         }
-        return resultEvents;
+        ArrayList<Event> sortedEvents = sortEvents(resultEvents);
+        return sortedEvents;
     }
 
     public static ArrayList<Event> sortEvents(ArrayList<Event> events) {
-//        int size = events.length;
-//
-//        for (int i = 0; i < (size-1); i++) {
-//
-//            boolean swapped = false;
-//
-//            for (int j = 0; j < (size - i - 1); j++) {
-//
-//                if (events[j] > events[j + 1]) {
-//
-//                    int temp = events[j];
-//                    events[j] = events[j + 1];
-//                    events[j + 1] = temp;
-//
-//                    swapped = true;
-//                }
-//            }
-//            if (!swapped)
-//                break;
-//        }
+        int size = events.size();
+
+        for (int i = 0; i < (size-1); i++) {
+            boolean swapped = false;
+            for (int j = 0; j < (size - i - 1); j++) {
+                if (events.get(j).isAfter(events.get(j + 1))) {
+                    Collections.swap(events, j, j + 1);
+                    swapped = true;
+                }
+            }
+            if (!swapped)
+                break;
+        }
         return events;
     }
 
-    public static String timeAfter(String timeOne, String timeTwo) {
-        String[] timeOneParts = timeOne.split(" ");
-        String[] timeTwoParts = timeTwo.split(" ");
+    public boolean isAfter(Event time) {
+        String[] timeOneParts = this.time.split(" ");
+        String[] timeTwoParts = time.time.split(" ");
         String timeOneTime = timeOneParts[0];
         String timeOneAMPM = timeOneParts[1];
         String timeTwoTime = timeTwoParts[0];
         String timeTwoAMPM = timeTwoParts[1];
 
-        if (!timeOneAMPM.equals(timeTwoAMPM)) {
-            String[] timeOneTimeParts = timeOneTime.split(" ");
-            String[] timeTwoTimeParts = timeTwoTime.split(" ");
+        if (timeOneAMPM.equals(timeTwoAMPM)) {
+            String[] timeOneTimeParts = timeOneTime.split(":");
+            String[] timeTwoTimeParts = timeTwoTime.split(":");
             String timeOneHours = timeOneTimeParts[0];
             String timeOneMinutes = timeOneTimeParts[1];
             String timeTwoHours = timeTwoTimeParts[0];
             String timeTwoMinutes = timeTwoTimeParts[1];
-
+            if (Integer.parseInt(timeOneHours) > Integer.parseInt(timeTwoHours)) {
+                return true;
+            } else if (Integer.parseInt(timeOneHours) < Integer.parseInt(timeTwoHours)) {
+                return false;
+            } else {
+                if (Integer.parseInt(timeOneMinutes) > Integer.parseInt(timeTwoMinutes)) {
+                    return true;
+                } else if (Integer.parseInt(timeOneMinutes) < Integer.parseInt(timeTwoMinutes)) {
+                    return false;
+                } else {
+                    return false;
+                }
+            }
         } else {
             if (timeOneAMPM.equals("AM")) {
-                return timeOne;
+                return false;
             }
-            return timeTwo;
+            return true;
         }
     }
 
@@ -118,5 +164,21 @@ public class Event {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(date);
+        dest.writeString(name);
+        dest.writeString(type);
+        dest.writeString(time);
+        dest.writeString(place);
+        dest.writeString(notes);
     }
 }

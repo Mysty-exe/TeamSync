@@ -8,7 +8,7 @@
     app:cardCornerRadius="10dp"
     app:strokeColor="@color/maroon"
     app:strokeWidth="2dp"
-    android:backgroundTint="@android:color/transparent"
+    android:backgroundTint="@color/maroon"
     app:cardElevation="0dp"
     android:layout_marginBottom="10dp">
 
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_menu"
-                app:tint="@color/maroon" />
+                app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/personTxt"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito"
                 android:text="Person Name"
-                android:textColor="@color/maroon"
+                android:textColor="@color/gold"
                 android:textSize="22sp"/>
 
             <TextView
@@ -49,7 +49,7 @@
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/nunito"
                 android:text="Time"
-                android:textColor="@color/maroon"
+                android:textColor="@color/white"
                 android:layout_below="@id/personTxt"
                 android:textSize="12sp"/>
 
@@ -61,7 +61,7 @@
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/nunito"
                 android:text="(Edited)"
-                android:textColor="@color/maroon"
+                android:textColor="@color/white"
                 android:layout_toRightOf="@id/timeTxt"
                 android:textSize="12sp"
                 android:visibility="gone"/>
@@ -80,9 +80,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:textColorHint="@color/maroon"
                 app:boxStrokeColor="@color/gold"
-                app:hintTextColor="@color/maroon">
+                app:cursorColor="@color/white"
+                android:textColorHint="@color/maroon"
+                app:hintTextColor="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/announcementInputTxt"
@@ -91,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nunito"
                     android:inputType="textMultiLine"
-                    android:textColor="@color/maroon"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/gold">
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -112,9 +113,9 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nunito"
                     android:text="Cancel"
-                    android:textColor="@color/gold"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
-                    app:strokeColor="@color/maroon" />
+                    app:strokeColor="@color/gold" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/updateBtn"
@@ -125,9 +126,9 @@
                     android:layout_marginRight="20dp"
                     android:fontFamily="@font/nunito"
                     android:text="Update"
-                    android:textColor="@color/gold"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
-                    app:strokeColor="@color/maroon" />
+                    app:strokeColor="@color/gold" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -143,6 +144,7 @@
             android:text="Announcement"
             android:layout_below="@id/aboveMessage"
             android:textSize="16sp"
+            android:textColor="@color/white"
             style="@style/Text"/>
 
     </RelativeLayout>

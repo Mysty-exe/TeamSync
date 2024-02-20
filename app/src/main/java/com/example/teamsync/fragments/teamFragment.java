@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.example.teamsync.R;
-import com.example.teamsync.activities.LoginActivity;
-import com.example.teamsync.adapters.AnnouncementsRecViewAdapter;
+import com.example.teamsync.activities.HomePageActivity;
 import com.example.teamsync.adapters.CoachesRecViewAdapter;
 import com.example.teamsync.adapters.PlayersRecViewAdapter;
 import com.example.teamsync.models.Team;
@@ -36,7 +35,7 @@ public class teamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_team, container, false);
-        Team team = LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam());
+        Team team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
 
         coachesGroup = view.findViewById(R.id.coaches);
         playersGroup = view.findViewById(R.id.players);
@@ -50,8 +49,8 @@ public class teamFragment extends Fragment {
 
         playersAdapter = new PlayersRecViewAdapter(getContext());
         playersAdapter.setPlayers(team.getPlayers());
-        coachesRecView.setAdapter(playersAdapter);
-        coachesRecView.setLayoutManager(new LinearLayoutManager(getContext()));
+        playersRecView.setAdapter(playersAdapter);
+        playersRecView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         if (team.getCoaches().isEmpty()) {
             coachesGroup.setVisibility(View.GONE);

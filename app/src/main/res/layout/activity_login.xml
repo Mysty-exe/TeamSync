@@ -1,48 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/fragmentLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:layout_centerInParent="true"
+    style="@style/themeFragment">
 
-    <ImageView
-        android:id="@+id/loginLogo"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="85dp"
-        android:src="@mipmap/loginlogo"
-        android:layout_centerHorizontal="true"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/signupStartBtn"
-        android:layout_width="200dp"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/loginLogo"
-        android:layout_marginTop="70dp"
-        android:layout_centerHorizontal="true"
-        app:rippleColor="@color/maroon"
-        android:textColor="@color/gold"
-        app:cornerRadius="10dp"
-        android:textSize="18dp"
-        android:fontFamily="@font/nunito"
-        app:strokeColor="@color/maroon"
-        android:text="Sign Up"
-        style="@style/Widget.Material3.Button.OutlinedButton"/>
+        android:layout_centerInParent="true">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginStartBtn"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signupStartBtn"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        app:rippleColor="@color/maroon"
-        android:textColor="@color/gold"
-        app:cornerRadius="10dp"
-        android:textSize="18dp"
-        android:fontFamily="@font/nunito"
-        app:strokeColor="@color/maroon"
-        android:text="Login"
-        style="@style/Widget.Material3.Button.OutlinedButton"/>
+        <TextView
+            android:id="@+id/loginTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="36dp"
+            android:textColor="@color/maroon"
+            android:fontFamily="@font/nunito"
+            android:layout_centerHorizontal="true"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLoginInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/loginTxt"
+            android:hint="Email"
+            app:endIconMode="clear_text"
+            android:layout_marginTop="50dp"
+            app:helperText="Enter your Email Address"
+            app:errorEnabled="true"
+            style="@style/Theme.Login">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailLoginInputTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/maroon"
+                android:inputType="textEmailAddress"
+                android:fontFamily="@font/nunito">
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLoginInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailLoginInput"
+            android:hint="Password"
+            app:endIconMode="password_toggle"
+            android:layout_marginTop="30dp"
+            app:helperText="Enter your Password"
+            app:errorEnabled="true"
+            style="@style/Theme.Login">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordLoginInputTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/maroon"
+                android:inputType="textPassword"
+                android:fontFamily="@font/nunito">
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordLoginInput"
+            android:layout_marginTop="80dp"
+            android:text="Login"
+            android:fontFamily="@font/nunito"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            style="@style/Widget.App.textField"/>
+
+    </RelativeLayout>
 </RelativeLayout>

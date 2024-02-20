@@ -3,14 +3,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.statsFragment"
     android:padding="30dp">
 
     <TextView
+        android:id="@+id/statsTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Team Stats"
+        android:textSize="30dp"
+        android:textColor="@color/maroon"
+        android:fontFamily="@font/nunito"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/statsBanner"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_below="@id/statsTxt"
+        app:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/team_cardview">
+
+            <TextView
+                android:id="@+id/teamNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Team Name"
+                android:fontFamily="@font/nunito"
+                android:textSize="28dp"
+                android:textColor="@color/gold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Record: 1-0-0"
+                android:fontFamily="@font/nunito"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/teamNameTxt"/>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <RelativeLayout
+        android:id="@+id/notFoundGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Stats"
-        android:textSize="30dp"
-        android:fontFamily="@font/nunito"/>
+        android:layout_below="@id/statsBanner"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/noEventFoundImg"
+            style="@style/notFoundImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/noEventFoundTxt"/>
+
+        <TextView
+            android:id="@+id/noEventFoundTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nunito"
+            android:gravity="center"
+            android:text="No Past or Upcoming\nGames Found"
+            android:textColor="@color/gold"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

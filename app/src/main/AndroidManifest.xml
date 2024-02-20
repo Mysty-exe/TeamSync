@@ -13,30 +13,36 @@
         android:theme="@style/Theme.TeamSync"
         tools:targetApi="31">
         <activity
+            android:name=".activities.SignupActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.LoginActivity"/>
+        <activity android:name=".activities.HomePageActivity" />
+        <activity android:name=".activities.LoginActivity" />
         <activity
             android:name=".activities.MainActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
+            android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".activities.AddTeamActivity"
-            android:theme="@style/Theme.AppPopUp"/>
-        <activity
-            android:name=".activities.EditTeamActivity"
-            android:theme="@style/Theme.AppPopUp"/>
+            android:theme="@style/Theme.AppPopUp" />
         <activity
             android:name=".activities.AddEventActivity"
-            android:theme="@style/Theme.AppPopUp"/>
+            android:theme="@style/Theme.AppPopUp" />
         <activity
-            android:name=".activities.TeamActivity"/>
+            android:name=".activities.ViewEventActivity"
+            android:theme="@style/Theme.AppCloseablePopUp" />
         <activity
-            android:name=".activities.SettingsActivity"/>
+            android:name=".activities.EditEventActivity"
+            android:theme="@style/Theme.AppPopUp" />
+        <activity android:name=".activities.TeamActivity" />
+        <activity android:name=".activities.UserSettingsActivity" />
     </application>
+
 </manifest>

@@ -2,8 +2,6 @@ package com.example.teamsync.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.teamsync.R;
-import com.example.teamsync.activities.LoginActivity;
-import com.example.teamsync.models.Account;
-import com.example.teamsync.models.Announcement;
-import com.example.teamsync.models.Team;
+import com.example.teamsync.activities.HomePageActivity;
 
 import java.util.ArrayList;
 
@@ -43,13 +38,13 @@ public class CoachesRecViewAdapter extends RecyclerView.Adapter<CoachesRecViewAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.announcements_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_people, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.personTxt.setText(LoginActivity.getPersonObj(coaches.get(position)).getFullName());
+        holder.personTxt.setText(HomePageActivity.getPersonObj(coaches.get(position)).getFullName());
     }
 
     @Override

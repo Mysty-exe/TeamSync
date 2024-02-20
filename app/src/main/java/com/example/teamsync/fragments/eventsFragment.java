@@ -20,19 +20,13 @@ import android.widget.Toast;
 
 import com.example.teamsync.R;
 import com.example.teamsync.activities.AddEventActivity;
-import com.example.teamsync.activities.AddTeamActivity;
-import com.example.teamsync.activities.EditTeamActivity;
-import com.example.teamsync.activities.LoginActivity;
-import com.example.teamsync.activities.MainActivity;
-import com.example.teamsync.adapters.CoachesRecViewAdapter;
+import com.example.teamsync.activities.HomePageActivity;
 import com.example.teamsync.adapters.EventsRecViewAdapter;
 import com.example.teamsync.models.Event;
 import com.example.teamsync.models.Team;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class eventsFragment extends Fragment {
 
@@ -44,6 +38,7 @@ public class eventsFragment extends Fragment {
     private FloatingActionButton addEventFab;
     private TextView dateTxt, numEventsTxt;
     private Handler handler = new Handler();
+    private Team team;
     String currentCalDate;
 
 
@@ -51,6 +46,7 @@ public class eventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_events, container, false);
+        team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
 
         Calendar calTd = Calendar.getInstance();
         Calendar calDate = Calendar.getInstance();
@@ -64,7 +60,7 @@ public class eventsFragment extends Fragment {
         addEventFab = view.findViewById(R.id.addEventFab);
 
         adapter = new EventsRecViewAdapter(getContext());
-        updateRecycler(LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam()));
+        updateRecycler(team);
         eventsRecyclerView.setAdapter(adapter);
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -92,7 +88,7 @@ public class eventsFragment extends Fragment {
                 }
 
                 dateTxt.setText(date);
-                updateRecycler(LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam()));
+                updateRecycler(team);
                 }
         });
 
@@ -116,26 +112,27 @@ public class eventsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        updateRecycler(LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam()));
+        team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
+        updateRecycler(team);
     }
 
     private final Runnable runnable = new Runnable() {
         @Override
         public void run() {
             checkEvents();
+            numEventsTxt.setText(Event.getEventsForDay(team.getEvents(), currentCalDate).size() + " Activities");
             handler.postDelayed(runnable, 100);
         }
     };
 
     public void updateRecycler(Team team) {
         adapter.setEvents(Event.getEventsForDay(team.getEvents(), currentCalDate));
-        numEventsTxt.setText(Event.getEventsForDay(team.getEvents(), currentCalDate).size() + " Activities");
     }
 
     public void checkEvents() {
         notFoundGroup = view.findViewById(R.id.notFoundGroup);
-        if (LoginActivity.getCurrentAcc() != null) {
-            if (Event.getEventsForDay(LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam()).getEvents(), currentCalDate).isEmpty()) {
+        if (HomePageActivity.getCurrentAcc() != null) {
+            if (Event.getEventsForDay(team.getEvents(), currentCalDate).isEmpty()) {
                 notFoundGroup.setVisibility(View.VISIBLE);
             } else {
                 notFoundGroup.setVisibility(View.GONE);

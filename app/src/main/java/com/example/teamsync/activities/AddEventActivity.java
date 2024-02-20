@@ -1,7 +1,5 @@
 package com.example.teamsync.activities;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -18,19 +16,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.teamsync.R;
 import com.example.teamsync.models.Event;
-import com.example.teamsync.models.Team;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
-import java.text.MessageFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
 public class AddEventActivity extends AppCompatActivity {
@@ -44,7 +38,7 @@ public class AddEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_event_popupwindow);
+        setContentView(R.layout.activity_addevent);
 
         Intent intent = getIntent();
         String date = intent.getStringExtra("Date");
@@ -77,14 +71,13 @@ public class AddEventActivity extends AppCompatActivity {
         });
 
         ArrayList<String> eventTypes = new ArrayList<>();
-        eventTypes.add("Meet");
+        eventTypes.add("Meeting");
         eventTypes.add("Practice");
         eventTypes.add("Game");
-        eventTypes.add("Tournament");
         eventTypes.add("Other");
 
         ArrayAdapter<String> eventTypesAdapter = new ArrayAdapter<>(
-                this, R.layout.adapter_list_item, eventTypes
+                this, R.layout.item_adapter, eventTypes
         );
         eventsChoice.setAdapter(eventTypesAdapter);
 
@@ -164,6 +157,7 @@ public class AddEventActivity extends AppCompatActivity {
                     Event event = new Event(date, eventNameInputTxt.getText().toString().trim(), eventsChoice.getText().toString().trim(), timeTxt.getText().toString(), addressInputTxt.getText().toString().trim());
                     event.setNotes(notesInputTxt.getText().toString().trim());
                     addEvent(event);
+                    Toast.makeText(AddEventActivity.this, "Event Added", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -171,8 +165,8 @@ public class AddEventActivity extends AppCompatActivity {
     }
 
     public void addEvent(Event event) {
-        ArrayList<Event> events = LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam()).getEvents();
+        ArrayList<Event> events = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam()).getEvents();
         events.add(event);
-        LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam()).setEvents(events);
+        HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam()).setEvents(events);
     }
 }

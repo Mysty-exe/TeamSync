@@ -13,18 +13,19 @@ import java.util.UUID;
 
 public class Team {
     private String id = UUID.randomUUID().toString();
-    private String name, sport, coach, age, gender;
+    private String name, sport, mainCoach, age, gender;
     private ArrayList<Announcement> announcements = new ArrayList<>();
     private ArrayList<Event> events = new ArrayList<>();
     private ArrayList<String> coaches = new ArrayList<>();
     private ArrayList<String> players = new ArrayList<>();
 
-    public Team(String name, String sport, String coach, String age, String gender) {
+    public Team(String name, String sport, String mainCoach, String age, String gender) {
         this.name = name;
         this.sport = sport;
-        this.coach = coach;
+        this.mainCoach = mainCoach;
         this.age = age;
         this.gender = gender;
+        this.coaches.add(mainCoach);
     }
 
     public String getId() {
@@ -52,11 +53,11 @@ public class Team {
     }
 
     public String getCoach() {
-        return coach;
+        return mainCoach;
     }
 
     public void setCoach(String coach) {
-        this.coach = coach;
+        this.mainCoach = mainCoach;
     }
 
     public String getAge() {

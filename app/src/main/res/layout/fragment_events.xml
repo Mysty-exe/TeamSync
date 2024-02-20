@@ -22,7 +22,8 @@
         android:id="@+id/calendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/eventsTxt">
+        android:layout_below="@id/eventsTxt"
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText">
 
     </CalendarView>
 
@@ -50,9 +51,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/numEventsTxt"
-        android:layout_above="@id/addEventFab">
+        android:layout_height="match_parent"
+        android:layout_below="@id/numEventsTxt">
 
         <RelativeLayout
             android:id="@+id/notFoundGroup"
@@ -97,7 +97,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/eventsRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"/>
 

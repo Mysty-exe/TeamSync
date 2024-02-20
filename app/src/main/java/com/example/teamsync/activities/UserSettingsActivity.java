@@ -14,7 +14,7 @@ import com.example.teamsync.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.gson.Gson;
 
-public class SettingsActivity extends AppCompatActivity {
+public class UserSettingsActivity extends AppCompatActivity {
 
     MaterialButton profileBtn, notiBtn, delAccBtn;
     Gson gson = new Gson();
@@ -30,7 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_usersettings);
 
         profileBtn = findViewById(R.id.profileBtn);
         notiBtn = findViewById(R.id.notiBtn);
@@ -39,14 +39,14 @@ public class SettingsActivity extends AppCompatActivity {
         profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SettingsActivity.this, "Profile Button Clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserSettingsActivity.this, "Profile Button Clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
         notiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SettingsActivity.this, "Notification Button Clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserSettingsActivity.this, "Notification Button Clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -58,11 +58,11 @@ public class SettingsActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                String currentId = LoginActivity.getCurrentAcc().getId();
-                                LoginActivity.clearCurrentAcc();
-                                LoginActivity.deleteAccount(currentId);
+                                String currentId = HomePageActivity.getCurrentAcc().getId();
+                                HomePageActivity.clearCurrentAcc();
+                                HomePageActivity.deleteAccount(currentId);
                                 deleteUser();
-                                startActivity(new Intent(SettingsActivity.this, LoginActivity.class));
+                                startActivity(new Intent(UserSettingsActivity.this, HomePageActivity.class));
                                 finish();
                             }
                         });
@@ -80,12 +80,12 @@ public class SettingsActivity extends AppCompatActivity {
     private void deleteUser() {
         SharedPreferences sharedPrefs = getSharedPreferences("Data", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = sharedPrefs.edit();
-        String accountsJson = gson.toJson(LoginActivity.getAccounts());
-        String teamsJson = gson.toJson(LoginActivity.getTeams());
+        String accountsJson = gson.toJson(HomePageActivity.getAccounts());
+        String teamsJson = gson.toJson(HomePageActivity.getTeams());
         prefsEditor.putString("Accounts", accountsJson);
         prefsEditor.putString("Teams", teamsJson);
-        if (LoginActivity.currentAcc != null) {
-            String accountJson = gson.toJson(LoginActivity.getCurrentAcc());
+        if (HomePageActivity.currentAcc != null) {
+            String accountJson = gson.toJson(HomePageActivity.getCurrentAcc());
             prefsEditor.putString("Account", accountJson);
         } else {
             prefsEditor.remove("Account");

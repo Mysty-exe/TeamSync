@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SettingsActivity">
+    tools:context=".activities.UserSettingsActivity">
 
     <TextView
         android:id="@+id/settingsTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Settings"
+        android:text="User Settings"
         android:textSize="36dp"
         android:textColor="@color/maroon"
         android:fontFamily="@font/nunito"

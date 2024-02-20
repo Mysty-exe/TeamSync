@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/team_popup"
+        android:background="@drawable/popup"
         android:backgroundTint="@color/maroon"
         android:padding="20dp">
 
@@ -20,10 +20,10 @@
             app:tint="@color/gold" />
 
         <TextView
-            android:id="@+id/addEventTxt"
+            android:id="@+id/editEventTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add an Event"
+            android:text="Edit an Event"
             android:textSize="40sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
@@ -34,7 +34,7 @@
             android:id="@+id/eventNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/addEventTxt"
+            android:layout_below="@+id/editEventTxt"
             android:hint="Event Name"
             app:endIconMode="clear_text"
             android:layout_marginTop="20dp"
@@ -77,47 +77,13 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/timeHeadingTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_below="@id/eventsDropdown"
-            android:text="Time"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/nunito"/>
-
-        <TextView
-            android:id="@id/timeTxt"
-            android:layout_below="@id/timeHeadingTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
-            android:textSize="16sp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/nunito"
-            android:visibility="gone"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/setTimeBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/timeHeadingTxt"
-            android:layout_toRightOf="@id/timeTxt"
-            android:text="Set Time"
-            android:fontFamily="@font/nunito"
-            app:backgroundTint="@color/gold"
-            android:textColor="@color/white"/>
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/addressInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Address"
             app:helperText="Where is the place located?"
-            android:layout_below="@+id/setTimeBtn"
+            android:layout_below="@+id/eventsDropdown"
             android:layout_marginTop="15dp"
             app:endIconMode="clear_text"
             app:counterEnabled="true"
@@ -164,12 +130,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/addEventBtn"
+            android:id="@+id/editEventBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/notesInput"
             android:layout_marginTop="30dp"
-            android:text="Add Event"
+            android:text="Edit Event"
             android:fontFamily="@font/nunito"
             android:layout_centerHorizontal="true"
             app:backgroundTint="@color/gold"

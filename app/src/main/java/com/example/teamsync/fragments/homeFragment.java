@@ -1,6 +1,5 @@
 package com.example.teamsync.fragments;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,23 +9,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.teamsync.R;
-import com.example.teamsync.activities.LoginActivity;
-import com.example.teamsync.activities.MainActivity;
-import com.example.teamsync.activities.TeamActivity;
+import com.example.teamsync.activities.HomePageActivity;
 import com.example.teamsync.adapters.AnnouncementsRecViewAdapter;
 import com.example.teamsync.models.Announcement;
 import com.example.teamsync.models.Team;
@@ -34,9 +26,6 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -60,7 +49,7 @@ public class homeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        Team team = LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam());
+        Team team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
 
         announcementsRecView = view.findViewById(R.id.announcementsRecView);
         announcementInput = view.findViewById(R.id.announcementInput);
@@ -73,7 +62,7 @@ public class homeFragment extends Fragment {
         coachName = view.findViewById(R.id.coachTxt);
 
         teamName.setText(team.getName());
-        coachName.setText(LoginActivity.getPersonObj(team.getCoach()).getFullName());
+        coachName.setText(HomePageActivity.getPersonObj(team.getCoach()).getFullName());
 
         if (team.getAnnouncements().isEmpty()) {
             notFound.setVisibility(View.VISIBLE);
@@ -112,9 +101,10 @@ public class homeFragment extends Fragment {
                     return;
                 }
                 Date currentTime = Calendar.getInstance().getTime();
-                @SuppressLint("SimpleDateFormat") DateFormat date = new SimpleDateFormat("HH:mm");
-                Announcement announcement = new Announcement(LoginActivity.getCurrentAcc().getFullName(), date.format(currentTime), announcementTxt.getText().toString(), team.getId());
-                ArrayList<Announcement> announcements = LoginActivity.getTeam(team.getId()).getAnnouncements();;
+                boolean isPM = (currentTime.getHours() >= 12);
+                String time = String.format("%02d:%02d %s", (currentTime.getHours() == 12 || currentTime.getHours() == 0) ? 12 : currentTime.getHours() % 12, currentTime.getMinutes(), isPM ? "PM" : "AM");
+                Announcement announcement = new Announcement(HomePageActivity.getCurrentAcc().getFullName(), time, announcementTxt.getText().toString(), team.getId());
+                ArrayList<Announcement> announcements = HomePageActivity.getTeam(team.getId()).getAnnouncements();;
                 announcements.add(0, announcement);
                 adapter.setAnnouncements(announcements);
                 announcementTxt.setText("");
@@ -122,7 +112,7 @@ public class homeFragment extends Fragment {
                 announcementInput.clearFocus();
                 announcementBtns.setVisibility(View.GONE);
                 notFound.setVisibility(View.INVISIBLE);
-                LoginActivity.getTeam(team.getId()).setAnnouncements(announcements);
+                HomePageActivity.getTeam(team.getId()).setAnnouncements(announcements);
             }
         });
         handler.post(runnable);
@@ -140,8 +130,8 @@ public class homeFragment extends Fragment {
 
     public void checkAnnouncements() {
         RelativeLayout notFoundGroup = view.findViewById(R.id.notFoundGroup);
-        if (LoginActivity.getCurrentAcc() != null) {
-            if (LoginActivity.getTeam(LoginActivity.getCurrentAcc().getActiveTeam()).getAnnouncements().isEmpty()) {
+        if (HomePageActivity.getCurrentAcc() != null) {
+            if (HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam()).getAnnouncements().isEmpty()) {
                 notFoundGroup.setVisibility(View.VISIBLE);
             } else {
                 notFoundGroup.setVisibility(View.GONE);

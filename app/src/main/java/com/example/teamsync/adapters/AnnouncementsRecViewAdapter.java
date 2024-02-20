@@ -5,9 +5,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,10 +20,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.teamsync.R;
-import com.example.teamsync.activities.EditTeamActivity;
-import com.example.teamsync.activities.LoginActivity;
+import com.example.teamsync.activities.HomePageActivity;
 import com.example.teamsync.models.Announcement;
-import com.example.teamsync.models.Team;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -63,7 +58,7 @@ public class AnnouncementsRecViewAdapter extends RecyclerView.Adapter<Announceme
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.announcements_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_announcements, parent, false);
         return new ViewHolder(view);
     }
 
@@ -114,7 +109,7 @@ public class AnnouncementsRecViewAdapter extends RecyclerView.Adapter<Announceme
                                     announcements.get(holder.getAdapterPosition()).setMessage(message);
 
                                     setAnnouncements(announcements);
-                                    LoginActivity.getTeam(teamId).setAnnouncements(announcements);
+                                    HomePageActivity.getTeam(teamId).setAnnouncements(announcements);
                                     hideKeyboardFrom(context.getApplicationContext(), v);
                                 }
                             });
@@ -128,7 +123,7 @@ public class AnnouncementsRecViewAdapter extends RecyclerView.Adapter<Announceme
                                             String teamId = announcements.get(holder.getAdapterPosition()).getTeam();
                                             announcements.remove(position);
                                             setAnnouncements(announcements);
-                                            LoginActivity.getTeam(teamId).setAnnouncements(announcements);
+                                            HomePageActivity.getTeam(teamId).setAnnouncements(announcements);
                                         }
                                     });
                             builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
