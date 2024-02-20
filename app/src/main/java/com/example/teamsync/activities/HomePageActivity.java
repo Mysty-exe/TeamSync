@@ -144,7 +144,8 @@ public class HomePageActivity extends AppCompatActivity {
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                replaceFragment(new SignupFragment());
+                Intent myIntent = new Intent(HomePageActivity.this, SignupActivity.class);
+                startActivity(myIntent);
             }
         });
         
@@ -156,5 +157,4 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
     }
-
 }
