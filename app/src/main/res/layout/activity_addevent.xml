@@ -106,10 +106,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/timeHeadingTxt"
             android:layout_toRightOf="@id/timeTxt"
-            android:text="Set Time"
-            android:fontFamily="@font/nunito"
+            android:text="SET TIME"
             app:backgroundTint="@color/gold"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            app:cornerRadius="5dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/addressInput"
@@ -169,11 +169,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/notesInput"
             android:layout_marginTop="30dp"
-            android:text="Add Event"
-            android:fontFamily="@font/nunito"
+            android:text="ADD EVENT"
             android:layout_centerHorizontal="true"
             app:backgroundTint="@color/gold"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            app:cornerRadius="5dp" />
     </RelativeLayout>
 
 </ScrollView>

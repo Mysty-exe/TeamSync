@@ -64,6 +64,9 @@ public class eventsFragment extends Fragment {
         eventsRecyclerView.setAdapter(adapter);
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        checkEvents();
+        numEventsTxt.setText(Event.getEventsForDay(team.getEvents(), currentCalDate).size() + " Activities");
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {

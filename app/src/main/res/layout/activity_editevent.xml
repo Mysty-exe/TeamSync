@@ -135,10 +135,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/notesInput"
             android:layout_marginTop="30dp"
-            android:text="Edit Event"
-            android:fontFamily="@font/nunito"
+            android:text="EDIT EVENT"
             android:layout_centerHorizontal="true"
             app:backgroundTint="@color/gold"
+            app:cornerRadius="5dp"
             android:textColor="@color/white"/>
     </RelativeLayout>
 

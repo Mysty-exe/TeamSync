@@ -99,20 +99,24 @@
 
             <RadioButton
                 android:id="@+id/junioursChoice"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:buttonTint="@color/white"
                 android:fontFamily="@font/nunito"
-                android:text="Juniors"/>
+                android:text="Juniors"
+                android:textSize="14dp"
+                android:buttonTint="@color/radiobtn_color_popup"
+                android:textColor="@color/radiobtn_color_popup"
+                android:theme="@style/RadioButton"/>
             <RadioButton
                 android:id="@+id/senioursChoice"
-                android:textColor="@color/white"
-                android:buttonTint="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/nunito"
-                android:text="Seniors"/>
+                android:text="Seniors"
+                android:textSize="14dp"
+                android:buttonTint="@color/radiobtn_color_popup"
+                android:textColor="@color/radiobtn_color_popup"
+                android:theme="@style/RadioButton"/>
         </RadioGroup>
 
         <TextView
@@ -137,28 +141,34 @@
 
             <RadioButton
                 android:id="@+id/maleChoice"
-                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:buttonTint="@color/white"
                 android:fontFamily="@font/nunito"
-                android:text="Male"/>
+                android:text="Male"
+                android:textSize="14dp"
+                android:buttonTint="@color/radiobtn_color_popup"
+                android:textColor="@color/radiobtn_color_popup"
+                android:theme="@style/RadioButton"/>
             <RadioButton
                 android:id="@+id/femaleChoice"
-                android:textColor="@color/white"
-                android:buttonTint="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/nunito"
-                android:text="Female"/>
+                android:text="Female"
+                android:textSize="14dp"
+                android:buttonTint="@color/radiobtn_color_popup"
+                android:textColor="@color/radiobtn_color_popup"
+                android:theme="@style/RadioButton"/>
             <RadioButton
                 android:id="@+id/mixedChoice"
-                android:textColor="@color/white"
-                android:buttonTint="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/nunito"
-                android:text="Mixed"/>
+                android:text="Mixed"
+                android:textSize="14dp"
+                android:buttonTint="@color/radiobtn_color_popup"
+                android:textColor="@color/radiobtn_color_popup"
+                android:theme="@style/RadioButton"/>
         </RadioGroup>
 
         <com.google.android.material.button.MaterialButton
@@ -167,10 +177,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/genderRadioGroup"
             android:layout_marginTop="30dp"
-            android:text="Add Team"
-            android:fontFamily="@font/nunito"
+            android:text="ADD TEAM"
             android:layout_centerHorizontal="true"
             app:backgroundTint="@color/gold"
+            app:cornerRadius="5dp"
             android:textColor="@color/white"/>
 
     </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.teamsync.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -39,9 +40,11 @@ public class TeamActivity extends AppCompatActivity {
         menu = findViewById(R.id.bottom_navigation);
         profileFab = findViewById(R.id.profileFab);
 
-        commenceNavigation(menu.getSelectedItemId());
-        if (currentFragment != null) {
+        if (savedInstanceState != null) {
+            currentFragment = fragmentManager.getFragment(savedInstanceState, "Fragment");
             replaceFragment(currentFragment);
+        } else {
+            commenceNavigation(menu.getSelectedItemId());
         }
 
         menu.setOnItemSelectedListener(item -> {
@@ -71,6 +74,12 @@ public class TeamActivity extends AppCompatActivity {
                 popup.show();
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        fragmentManager.putFragment(outState, "Fragment", currentFragment);
     }
 
     @Override

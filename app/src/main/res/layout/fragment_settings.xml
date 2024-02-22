@@ -169,11 +169,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/genderRadioGroupEdit"
                 android:layout_marginTop="30dp"
-                android:text="Set Changes"
+                android:text="SET CHANGES"
                 android:layout_centerHorizontal="true"
                 app:backgroundTint="@color/gold"
-                android:fontFamily="@font/nunito"
                 android:textColor="@color/white"
+                app:cornerRadius="5dp"
                 android:visibility="gone"/>
 
         </RelativeLayout>
