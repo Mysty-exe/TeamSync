@@ -22,18 +22,17 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputLayout email, password;
     private TextInputEditText emailTxt, passwordTxt;
     private MaterialButton loginBtn;
-    private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email = view.findViewById(R.id.emailLoginInput);
-        emailTxt = view.findViewById(R.id.emailLoginInputTxt);
-        password = view.findViewById(R.id.passwordLoginInput);
-        passwordTxt = view.findViewById(R.id.passwordLoginInputTxt);
-        loginBtn = view.findViewById(R.id.loginBtn);
+        email = findViewById(R.id.emailLoginInput);
+        emailTxt = findViewById(R.id.emailLoginInputTxt);
+        password = findViewById(R.id.passwordLoginInput);
+        passwordTxt = findViewById(R.id.passwordLoginInputTxt);
+        loginBtn = findViewById(R.id.loginBtn);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

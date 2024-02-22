@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Coaches"
-            android:textColor="@color/maroon"
+            android:textColor="@color/gold"
             android:textSize="22dp" />
 
         <View
@@ -36,7 +36,7 @@
             android:layout_height="1dp"
             android:layout_below="@id/coachesTxt"
             android:background="@android:color/darker_gray"
-            android:backgroundTint="@color/maroon"/>
+            android:backgroundTint="@color/gold"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/coachesRecView"
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Players"
-            android:textColor="@color/maroon"
+            android:textColor="@color/gold"
             android:textSize="22dp" />
 
         <View
@@ -68,7 +68,7 @@
             android:layout_height="1dp"
             android:layout_below="@id/playersTxt"
             android:background="@android:color/darker_gray"
-            android:backgroundTint="@color/maroon"/>
+            android:backgroundTint="@color/gold"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/playersRecView"

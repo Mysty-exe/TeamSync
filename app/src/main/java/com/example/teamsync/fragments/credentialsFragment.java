@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.example.teamsync.R;
 import com.example.teamsync.activities.HomePageActivity;
 import com.example.teamsync.activities.LoginActivity;
+import com.example.teamsync.activities.SignupActivity;
 import com.example.teamsync.models.Account;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -90,11 +91,7 @@ public class credentialsFragment extends Fragment {
                 args.putParcelable("Account", account);
                 fragment.setArguments(args);
 
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.credentialsFragment, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                ((SignupActivity) getActivity()).replaceFragment(fragment, true);
             }
         });
 

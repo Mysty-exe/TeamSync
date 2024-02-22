@@ -1,58 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.userTypeFragment">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/coachCard"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:cardCornerRadius="15dp">
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragments.userTypeFragment">
 
-        <RelativeLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/coachCard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/banner">
+            android:layout_height="150dp"
+            app:cardCornerRadius="15dp"
+            android:checkable="true"
+            app:checkedIconTint="@color/gold">
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/coachCardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient">
 
-    </com.google.android.material.card.MaterialCardView>
+                <ImageView
+                    android:id="@+id/coachImg"
+                    android:layout_width="125dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/coach"/>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/playerCard"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/coachCard"
-        app:cardCornerRadius="15dp">
+                <TextView
+                    android:id="@+id/coachTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coach"
+                    android:layout_toRightOf="@id/coachImg"
+                    android:layout_marginTop="15dp"
+                    android:textSize="26sp"
+                    android:textColor="@color/gold"
+                    android:fontFamily="@font/nunito"/>
 
-        <RelativeLayout
+                <TextView
+                    android:id="@+id/coachInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manage teams, track progress, create events, and lead your athletes to success."
+                    android:layout_below="@id/coachTxt"
+                    android:layout_toRightOf="@id/coachImg"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/nunito"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/playerCard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/banner">
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/coachCard"
+            app:cardCornerRadius="15dp"
+            android:checkable="true"
+            app:checkedIconTint="@color/gold">
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/playerCardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient">
 
-    </com.google.android.material.card.MaterialCardView>
+                <ImageView
+                    android:id="@+id/playerImg"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:src="@mipmap/player"
+                    android:layout_centerVertical="true"/>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/parentCard"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/playerCard"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="15dp">
+                <TextView
+                    android:id="@+id/playerTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Player"
+                    android:layout_toRightOf="@id/playerImg"
+                    android:layout_marginTop="15dp"
+                    android:textSize="26sp"
+                    android:textColor="@color/gold"
+                    android:fontFamily="@font/nunito"/>
 
-        <RelativeLayout
+                <TextView
+                    android:id="@+id/playerInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Track your performance, communicate with coaches, and stay updated on training sessions."
+                    android:layout_below="@id/playerTxt"
+                    android:layout_toRightOf="@id/playerImg"
+                    android:layout_marginRight="20dp"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/nunito"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/parentCard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/banner">
+            android:layout_height="150dp"
+            android:layout_below="@id/playerCard"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="15dp"
+            android:checkable="true"
+            app:checkedIconTint="@color/gold">
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/parentCardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient">
 
-    </com.google.android.material.card.MaterialCardView>
+                <ImageView
+                    android:id="@+id/parentImg"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:src="@mipmap/parent"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/parentTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Parent"
+                    android:layout_toRightOf="@id/parentImg"
+                    android:textSize="26sp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/gold"
+                    android:fontFamily="@font/nunito"/>
+
+                <TextView
+                    android:id="@+id/parentInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stay connected with your children, receive updates on games and practices, and support their athletic journey."
+                    android:layout_below="@id/parentTxt"
+                    android:layout_toRightOf="@id/parentImg"
+                    android:layout_marginRight="20dp"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/nunito"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/createAccBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/parentCard"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/nunito"
+            android:text="Create Account"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            style="@style/Widget.App.textField"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -18,7 +18,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/statsBanner"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_below="@id/statsTxt"

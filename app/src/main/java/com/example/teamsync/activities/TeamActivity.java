@@ -29,6 +29,7 @@ public class TeamActivity extends AppCompatActivity {
     Gson gson = new Gson();
     BottomNavigationView menu;
     FloatingActionButton profileFab;
+    Fragment currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +40,12 @@ public class TeamActivity extends AppCompatActivity {
         profileFab = findViewById(R.id.profileFab);
 
         commenceNavigation(menu.getSelectedItemId());
+        if (currentFragment != null) {
+            replaceFragment(currentFragment);
+        }
 
         menu.setOnItemSelectedListener(item -> {
             commenceNavigation(item.getItemId());
-
             return true;
         });
 
@@ -90,7 +93,6 @@ public class TeamActivity extends AppCompatActivity {
 
     private void commenceNavigation(int item) {
         if (item == R.id.home) {
-            Log.d("TAG", "commenceNavigation: ");
             goHome();
         } else if (item == R.id.events) {
             goEvents();
@@ -105,26 +107,31 @@ public class TeamActivity extends AppCompatActivity {
 
     private void goHome() {
         Fragment homeFragment = new homeFragment();
+        currentFragment = homeFragment;
         replaceFragment(homeFragment);
     }
 
     private void goEvents() {
         Fragment eventsFragment = new eventsFragment();
+        currentFragment = eventsFragment;
         replaceFragment(eventsFragment);
     }
 
     private void goStats() {
         Fragment statsFragment = new statsFragment();
+        currentFragment = statsFragment;
         replaceFragment(statsFragment);
     }
 
     private void goTeam() {
         Fragment teamFragment = new teamFragment();
+        currentFragment = teamFragment;
         replaceFragment(teamFragment);
     }
 
     private void goSettings() {
         Fragment settingsFragment = new settingsFragment();
+        currentFragment = settingsFragment;
         replaceFragment(settingsFragment);
     }
 

@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/userAvatarFragment"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".fragments.userAvatarFragment">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/addAvatarImg"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/userAvatarFragment"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/addavatar"
-        android:layout_centerHorizontal="true"/>
+        tools:context=".fragments.userAvatarFragment">
 
-    <TextView
-        android:id="@+id/uploadImgTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/addAvatarImg"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Upload Picture"
-        android:fontFamily="@font/nunito"
-        android:textColor="@color/gold"
-        android:textSize="16sp"/>
+        <ImageView
+            android:id="@+id/addAvatarImg"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@mipmap/addavatar"
+            android:layout_centerHorizontal="true"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/nextBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/uploadImgTxt"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/nunito"
-        android:text="Next"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"
-        style="@style/Widget.App.textField"/>
+        <TextView
+            android:id="@+id/uploadImgTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addAvatarImg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Upload Picture"
+            android:fontFamily="@font/nunito"
+            android:textColor="@color/gold"
+            android:textSize="16sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/uploadImgTxt"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/nunito"
+            android:text="Next"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            style="@style/Widget.App.textField"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

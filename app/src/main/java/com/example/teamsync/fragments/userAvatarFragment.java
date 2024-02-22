@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.teamsync.R;
+import com.example.teamsync.activities.SignupActivity;
 import com.example.teamsync.models.Account;
 import com.google.android.material.button.MaterialButton;
 
@@ -49,10 +50,7 @@ public class userAvatarFragment extends Fragment {
                 args.putParcelable("Account", account);
                 fragment.setArguments(args);
 
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.userAvatarFragment, fragment);
-                fragmentTransaction.commit();
+                ((SignupActivity) getActivity()).replaceFragment(fragment, true);
             }
         });
         

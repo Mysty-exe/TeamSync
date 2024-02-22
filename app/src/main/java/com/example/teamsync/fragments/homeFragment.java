@@ -130,8 +130,9 @@ public class homeFragment extends Fragment {
 
     public void checkAnnouncements() {
         RelativeLayout notFoundGroup = view.findViewById(R.id.notFoundGroup);
-        if (HomePageActivity.getCurrentAcc() != null) {
-            if (HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam()).getAnnouncements().isEmpty()) {
+        Team team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
+        if (team != null) {
+            if (team.getAnnouncements().isEmpty()) {
                 notFoundGroup.setVisibility(View.VISIBLE);
             } else {
                 notFoundGroup.setVisibility(View.GONE);

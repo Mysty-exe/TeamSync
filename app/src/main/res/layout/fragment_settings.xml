@@ -33,7 +33,7 @@
                 android:layout_marginTop="40dp"
                 android:text="Team Name"
                 android:textSize="18sp"
-                android:textColor="@color/maroon"
+                android:textColor="@color/gold"
                 android:focusableInTouchMode="true"
                 android:fontFamily="@font/nunito"/>
 
@@ -52,13 +52,15 @@
                 app:counterTextColor="@color/maroon"
                 app:helperText="Name of the Team"
                 app:errorEnabled="true"
+                app:cursorColor="@color/maroon"
+                app:hintTextColor="@color/maroon"
                 style="@style/Widget.App.textField">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/teamNameInputTxtEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/maroon"
                     android:inputType="text"
                     android:fontFamily="@font/nunito">
                 </com.google.android.material.textfield.TextInputEditText>
@@ -73,7 +75,7 @@
                 android:text="Age"
                 android:layout_below="@id/teamNameInputEdit"
                 android:textSize="18sp"
-                android:textColor="@color/maroon"
+                android:textColor="@color/gold"
                 android:focusableInTouchMode="true"
                 android:fontFamily="@font/nunito"/>
 
@@ -92,6 +94,7 @@
                     android:fontFamily="@font/nunito"
                     android:text="Juniors"
                     android:textSize="14dp"
+                    android:buttonTint="@color/radiobtn_color"
                     android:textColor="@color/radiobtn_color"
                     android:theme="@style/RadioButton"/>
                 <RadioButton
@@ -101,6 +104,7 @@
                     android:fontFamily="@font/nunito"
                     android:text="Seniors"
                     android:textSize="14dp"
+                    android:buttonTint="@color/radiobtn_color"
                     android:textColor="@color/radiobtn_color"
                     android:theme="@style/RadioButton"/>
             </RadioGroup>
@@ -113,9 +117,10 @@
                 android:text="Gender"
                 android:layout_below="@id/ageRadioGroupEdit"
                 android:textSize="18sp"
-                android:textColor="@color/maroon"
+                android:textColor="@color/gold"
                 android:focusableInTouchMode="true"
                 android:fontFamily="@font/nunito"
+                android:buttonTint="@color/radiobtn_color"
                 android:theme="@style/RadioButton"/>
 
             <RadioGroup
@@ -134,6 +139,7 @@
                     android:text="Male"
                     android:textSize="14dp"
                     android:textColor="@color/radiobtn_color"
+                    android:buttonTint="@color/radiobtn_color"
                     android:theme="@style/RadioButton"/>
                 <RadioButton
                     android:id="@+id/femaleChoiceEdit"
@@ -143,6 +149,7 @@
                     android:text="Female"
                     android:textSize="14dp"
                     android:textColor="@color/radiobtn_color"
+                    android:buttonTint="@color/radiobtn_color"
                     android:theme="@style/RadioButton"/>
                 <RadioButton
                     android:id="@+id/mixedChoiceEdit"
@@ -152,6 +159,7 @@
                     android:text="Mixed"
                     android:textSize="14dp"
                     android:textColor="@color/radiobtn_color"
+                    android:buttonTint="@color/radiobtn_color"
                     android:theme="@style/RadioButton"/>
             </RadioGroup>
 

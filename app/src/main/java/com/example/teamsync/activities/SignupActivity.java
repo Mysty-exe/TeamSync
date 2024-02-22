@@ -32,14 +32,16 @@ public class SignupActivity extends AppCompatActivity {
         goCredentials();
     }
 
-    private void replaceFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.signupFragment, fragment);
-        fragmentTransaction.commit();
+    public void replaceFragment(Fragment fragment, boolean addBack) {
+        if (addBack) {
+            fragmentManager.beginTransaction().replace(R.id.signupFragment, fragment).addToBackStack(null).commit();
+        } else {
+            fragmentManager.beginTransaction().replace(R.id.signupFragment, fragment).commit();
+        }
     }
 
     private void goCredentials() {
         Fragment credentialsFragment = new credentialsFragment();
-        replaceFragment(credentialsFragment);
+        replaceFragment(credentialsFragment, false);
     }
 }

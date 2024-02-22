@@ -27,7 +27,7 @@
             android:textSize="40sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:textColor="@color/white"
+            android:textColor="@color/gold"
             android:fontFamily="@font/nunito"/>
 
         <com.google.android.material.textfield.TextInputLayout
