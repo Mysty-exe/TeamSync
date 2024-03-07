@@ -24,7 +24,7 @@ public class UserSettingsActivity extends AppCompatActivity {
         builder = new AlertDialog.Builder(this, R.style.DialogTheme);
         builder.setCancelable(true);
         builder.setTitle("Delete Announcement");
-        builder.setMessage("Are you sure you want to delete this announcement?");
+        builder.setMessage("Are you sure you want to delete this account?");
     }
 
     @Override
@@ -84,7 +84,7 @@ public class UserSettingsActivity extends AppCompatActivity {
         String teamsJson = gson.toJson(HomePageActivity.getTeams());
         prefsEditor.putString("Accounts", accountsJson);
         prefsEditor.putString("Teams", teamsJson);
-        if (HomePageActivity.currentAcc != null) {
+        if (HomePageActivity.getCurrentAcc() != null) {
             String accountJson = gson.toJson(HomePageActivity.getCurrentAcc());
             prefsEditor.putString("Account", accountJson);
         } else {

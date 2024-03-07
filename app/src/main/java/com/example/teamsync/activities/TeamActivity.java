@@ -59,7 +59,7 @@ public class TeamActivity extends AppCompatActivity {
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        if (item.getItemId() == R.id.settings) {
+                        if (item.getItemId() == R.id.profile) {
                             startActivity(new Intent(TeamActivity.this, UserSettingsActivity.class));
                         } else if (item.getItemId() == R.id.logout) {
                             HomePageActivity.clearCurrentAcc();
@@ -91,7 +91,7 @@ public class TeamActivity extends AppCompatActivity {
         String teamsJson = gson.toJson(HomePageActivity.getTeams());
         prefsEditor.putString("Accounts", accountsJson);
         prefsEditor.putString("Teams", teamsJson);
-        if (HomePageActivity.currentAcc != null) {
+        if (HomePageActivity.getCurrentAcc() != null) {
             String accountJson = gson.toJson(HomePageActivity.getCurrentAcc());
             prefsEditor.putString("Account", accountJson);
         } else {

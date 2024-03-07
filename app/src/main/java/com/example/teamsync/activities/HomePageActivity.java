@@ -3,6 +3,7 @@ package com.example.teamsync.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -22,9 +23,9 @@ public class HomePageActivity extends AppCompatActivity {
 
     Gson gson = new Gson();
     SharedPreferences sharedPrefs;
-    static ArrayList<Team> teams = new ArrayList<>();
-    static ArrayList<Account> accounts = new ArrayList<>();
-    static Account currentAcc;
+    private static ArrayList<Team> teams = new ArrayList<>();
+    private static ArrayList<Account> accounts = new ArrayList<>();
+    private static Account currentAcc;
     private MaterialButton signupBtn, loginBtn;
 
     public static Account getPersonObj(String id) {
@@ -97,22 +98,19 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     public static Account getCurrentAcc() {
-        return currentAcc;
+        return HomePageActivity.currentAcc;
     }
 
     public static void setCurrentAcc(Account currentAcc) {
         HomePageActivity.currentAcc = currentAcc;
     }
+
     public static void clearCurrentAcc() {
-        currentAcc = null;
+        HomePageActivity.currentAcc = null;
     }
 
     public static void deleteAccount(String id) {
-        for (Account a: accounts) {
-            if (a.getId().equals(id)) {
-                accounts.remove(a);
-            }
-        }
+        accounts.removeIf(a -> a.getId().equals(id));
     }
 
     @Override
@@ -130,6 +128,7 @@ public class HomePageActivity extends AppCompatActivity {
         if (accountJson != null) {
             Account account = gson.fromJson(accountJson, Account.class);
             setCurrentAcc(account);
+            Log.d("TAG", "" + accountJson);
             startActivity(new Intent(this, MainActivity.class));
             finish();
         } if (accountsJson != null) {

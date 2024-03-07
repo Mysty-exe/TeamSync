@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.teamsync.R;
 import com.example.teamsync.activities.HomePageActivity;
 import com.example.teamsync.adapters.AnnouncementsRecViewAdapter;
+import com.example.teamsync.models.Account;
 import com.example.teamsync.models.Announcement;
 import com.example.teamsync.models.Team;
 import com.google.android.material.button.MaterialButton;
@@ -44,12 +45,13 @@ public class homeFragment extends Fragment {
     }
     private Handler handler = new Handler();
     private View view;
+    private Team team;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        Team team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
+        team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
 
         announcementsRecView = view.findViewById(R.id.announcementsRecView);
         announcementInput = view.findViewById(R.id.announcementInput);
@@ -120,6 +122,12 @@ public class homeFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
+    }
+
     private final Runnable runnable = new Runnable() {
         @Override
         public void run() {
@@ -130,8 +138,8 @@ public class homeFragment extends Fragment {
 
     public void checkAnnouncements() {
         RelativeLayout notFoundGroup = view.findViewById(R.id.notFoundGroup);
-        Team team = HomePageActivity.getTeam(HomePageActivity.getCurrentAcc().getActiveTeam());
-        if (team != null) {
+        Account account = HomePageActivity.getCurrentAcc();
+        if (account != null) {
             if (team.getAnnouncements().isEmpty()) {
                 notFoundGroup.setVisibility(View.VISIBLE);
             } else {

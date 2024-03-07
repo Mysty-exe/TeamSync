@@ -70,11 +70,12 @@ public class MainActivity extends AppCompatActivity {
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        if (item.getItemId() == R.id.settings) {
+                        if (item.getItemId() == R.id.profile) {
                             startActivity(new Intent(MainActivity.this, UserSettingsActivity.class));
                         } else if (item.getItemId() == R.id.logout) {
                             HomePageActivity.clearCurrentAcc();
                             startActivity(new Intent(MainActivity.this, HomePageActivity.class));
+                            finish();
                         }
                         return false;
                     }
@@ -120,11 +121,10 @@ public class MainActivity extends AppCompatActivity {
         String teamsJson = gson.toJson(HomePageActivity.getTeams());
         prefsEditor.putString("Accounts", accountsJson);
         prefsEditor.putString("Teams", teamsJson);
-        if (HomePageActivity.currentAcc != null) {
+        if (HomePageActivity.getCurrentAcc() != null) {
             String accountJson = gson.toJson(HomePageActivity.getCurrentAcc());
             prefsEditor.putString("Account", accountJson);
         } else {
-            Log.d("error", "Removing");
             prefsEditor.remove("Account");
         }
         prefsEditor.apply();
